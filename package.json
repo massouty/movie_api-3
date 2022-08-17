@@ -1,5 +1,5 @@
 {
-  "name": "movie-api-2",
+  "name": "movie_api-3",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/massouty/movie-api-2"
+    "url": "git+https://github.com/massouty/movie_api-3"
   },
   "keywords": [],
   "author": "massouty",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/massouty/movie-api-2/issues"
+    "url": "https://github.com/massouty/movie_api-3/issues"
   },
-  "homepage": "https://github.com/massouty/movie-api-2#readme",
+  "homepage": "https://github.com/massouty/movie_api-3#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
