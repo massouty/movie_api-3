@@ -1,4 +1,12 @@
-const express = require('express');
+const http=require('http');
+http.createServer((request,response)=>{response.writeHead(200,{'content-ty':'text/html'});
+response.end('welcome to my website for movies');}).listen(8080);
+console.log('my first node test server is running on port 8080');
+
+const express = require('express'),
+    morgan = require('morgan'),
+    bodyParser = require('body-parser');
+
 const app = express();
 
 let topMovies = [
@@ -95,8 +103,16 @@ app.get('/movies', (req, res) => {
   res.json(topMovies);
 });
 
+app.use(morgan('combined')); // setup the logger, Mildware function to the terminal
+
+app.use(express.static('public')); // Automatically routes all requests for static files to their corresponding files within a certain folder on the server.
+
+app.use(bodyParser.json()); // support parsing of application/json type post data
+app.use(bodyParser.urlencoded({ extended: true })); //support parsing of application/x-www-form-urlencoded post data
+
 
 // listen for requests
 app.listen(8080, () => {
   console.log('Your app is listening on port 8080.');
 });
+
