@@ -99,6 +99,10 @@ app.get('/documentation', (req, res) => {
   res.sendFile('public/documentation.html', { root: __dirname });
 });
 
+app.get('/index', (req, res) => {                  
+  res.sendFile('public/index.html', { root: __dirname });
+});
+
 app.get('/movies', (req, res) => {
   res.json(topMovies);
 });
@@ -110,9 +114,13 @@ app.use(express.static('public')); // Automatically routes all requests for stat
 app.use(bodyParser.json()); // support parsing of application/json type post data
 app.use(bodyParser.urlencoded({ extended: true })); //support parsing of application/x-www-form-urlencoded post data
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
 
 // listen for requests
 app.listen(8080, () => {
   console.log('Your app is listening on port 8080.');
 });
-
